@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=https://json.schemastore.org/lazygit.json
+
+gui:
+  nerdFontsVersion: "3" 
+  skipRewordInEditorWarning: true
+os:
+  editPreset: 'nvim' 
+  open: 'nvim'
+keybinding:
+  commits:
+    moveDownCommit: '<c-n>'
+    moveUpCommit: '<c-p>'
+services:
+  'gitlab.ozon.ru': 'gitlab:gitlab.ozon.ru'

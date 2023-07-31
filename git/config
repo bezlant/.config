@@ -1,0 +1,26 @@
+[user]
+  email = abezlyudniy@ozon.ru
+  name = abezlyudniy
+
+[help]
+	autocorrect = 1
+
+[core]
+	editor = nvim
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+[init]
+	defaultBranch = main
+
+[rebase]
+	autoStash = true
+
+[diff]
+	tool = vimdiff
+
+[url "git@gitlab.ozon.ru:"]
+       insteadOf = https://gitlab.ozon.ru/
