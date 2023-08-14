@@ -116,14 +116,12 @@ export EDITOR=nvim
 export VISUAL=nvim
 export HISTFILE="$HOME/.cache/.zsh_history"
 export LESSHISTFILE="$HOME/.cache/.less_history"
-
 export PATH="/Users/abezlyudniy/.local/share/nvim/mason/bin:$PATH"
-export _JAVA_OPTIONS="-Dsun.java2d.dpiaware=true -Dsun.java2d.uiScale=2"
-
-export LDFLAGS="-L/opt/homebrew/opt/node@16/lib"
-export CPPFLAGS="-I/opt/homebrew/opt/node@16/include"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+
+export VAULT="/opt/homebrew/bin/vault"
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+export PUPPETEER_EXECUTABLE_PATH=`which chromium`
