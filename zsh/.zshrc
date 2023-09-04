@@ -70,7 +70,24 @@ ZSH_CUSTOM=$HOME/.config/zsh
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(vi-mode zsh-syntax-highlighting colored-man-pages zsh-autosuggestions)
+plugins=(
+  aliases
+  brew
+  colored-man-pages 
+  copyfile
+  copypath
+  npm
+  nvm
+  sudo
+  tmux
+  vi-mode
+  web-search
+  yarn
+  zsh-autosuggestions 
+  zsh-fzf-history-search
+  zsh-syntax-highlighting
+)
+
 
 source $ZSH/oh-my-zsh.sh
 
@@ -107,8 +124,8 @@ alias clang-dump="clang-format -style=llvm -dump-config > .clang-format"
 alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind_result.txt'
 alias gcl='git clone'
 alias lg='lazygit'
-alias nrc='nvim -c "cd ~/.config/nvim/lua/config" ~/.config/nvim/lua/config/plugins.lua'
-alias zshrc='vim ~/.zshrc'
+alias nrc='nvim -c "cd $HOME/.config/nvim/lua/config" $HOME/.config/nvim/lua/config/plugins.lua'
+alias zshrc='vim $HOME/.zshrc'
 
 # Exports
 export GPG_TTY=$(tty)
@@ -116,11 +133,8 @@ export EDITOR=nvim
 export VISUAL=nvim
 export HISTFILE="$HOME/.cache/.zsh_history"
 export LESSHISTFILE="$HOME/.cache/.less_history"
-export PATH="/Users/abezlyudniy/.local/share/nvim/mason/bin:$PATH"
-
+export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export VAULT="/opt/homebrew/bin/vault"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true

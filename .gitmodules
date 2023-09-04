@@ -7,3 +7,6 @@
 [submodule "nvim"]
 	path = nvim
 	url = git@github.com:bezlant/nvim.git
+[submodule "/Users/abezlyudniy/.config/zsh/plugins/zsh-fzf-history-search"]
+	path = /Users/abezlyudniy/.config/zsh/plugins/zsh-fzf-history-search
+	url = https://github.com/joshskidmore/zsh-fzf-history-search
