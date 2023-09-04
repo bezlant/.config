@@ -1,0 +1,9 @@
+[submodule "/Users/abezlyudniy/.config/zsh/plugins/zsh-autosuggestions"]
+	path = /Users/abezlyudniy/.config/zsh/plugins/zsh-autosuggestions
+	url = https://github.com/zsh-users/zsh-autosuggestions
+[submodule "/Users/abezlyudniy/.config/zsh/plugins/zsh-syntax-highlighting"]
+	path = /Users/abezlyudniy/.config/zsh/plugins/zsh-syntax-highlighting
+	url = https://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "nvim"]
+	path = nvim
+	url = git@github.com:bezlant/nvim.git
