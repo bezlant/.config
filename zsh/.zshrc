@@ -128,6 +128,7 @@ alias nrc='nvim -c "cd $HOME/.config/nvim/lua/config" $HOME/.config/nvim/lua/con
 alias zshrc='vim $HOME/.zshrc'
 
 # Exports
+export XDG_CONFIG_HOME="$HOME/.config"
 export GPG_TTY=$(tty)
 export EDITOR=nvim
 export VISUAL=nvim
