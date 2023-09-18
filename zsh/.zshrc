@@ -124,7 +124,7 @@ alias clang-dump="clang-format -style=llvm -dump-config > .clang-format"
 alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind_result.txt'
 alias gcl='git clone'
 alias lg='lazygit'
-alias nrc='nvim -c "cd $HOME/.config/nvim/lua/config" $HOME/.config/nvim/lua/config/plugins.lua'
+alias nrc='nvim -c "cd $HOME/.config/nvim/" $HOME/.config/nvim/lua/config/plugins.lua'
 alias zshrc='vim $HOME/.zshrc'
 
 # Exports
