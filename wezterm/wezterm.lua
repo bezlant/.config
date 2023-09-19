@@ -1,7 +1,8 @@
 local wezterm = require("wezterm")
+local config = wezterm.config_builder()
 local action = wezterm.action
 
-return {
+config = {
   color_scheme                                = "Dracula (Official)",
   font                                        = wezterm.font("Victor Mono"),
   font_size                                   = 14,
@@ -17,10 +18,13 @@ return {
   send_composed_key_when_right_alt_is_pressed = true,
   disable_default_key_bindings                = true,
   keys                                        = {
-    { key = "=", mods = "CTRL", action = action.ResetFontSize },
-    { key = "-", mods = "CTRL", action = action.DecreaseFontSize },
-    { key = "=", mods = "CTRL", action = action.IncreaseFontSize },
-    { key = "P", mods = "CTRL", action = action.ActivateCommandPalette },
-    { key = "V", mods = "CTRL", action = action.PasteFrom("Clipboard") },
+    { key = "=", mods = "CMD", action = action.ResetFontSize },
+    { key = "-", mods = "CMD", action = action.DecreaseFontSize },
+    { key = "+", mods = "CMD", action = action.IncreaseFontSize },
+    { key = "P", mods = "CMD", action = action.ActivateCommandPalette },
+    { key = "V", mods = "CMD", action = action.PasteFrom("Clipboard") },
+    { key = "q", mods = "CMD", action = action.CloseCurrentPane { confirm = true } },
   }
 }
+
+return config
