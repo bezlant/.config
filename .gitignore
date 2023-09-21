@@ -5,3 +5,4 @@ karabiner/automatic_backups
 lazygit/state.yml
 .nuxtrc
 github-copilot
+tmux/resurrect
