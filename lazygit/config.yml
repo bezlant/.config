@@ -11,4 +11,4 @@ keybinding:
     moveDownCommit: '<c-n>'
     moveUpCommit: '<c-p>'
 services:
-  'gitlab.ozon.ru': 'gitlab:gitlab.ozon.ru'
+  'git@gitlab.ozon.ru': 'gitlab:git@gitlab.ozon.ru'
