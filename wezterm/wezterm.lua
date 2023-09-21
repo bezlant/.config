@@ -18,12 +18,14 @@ config = {
   send_composed_key_when_right_alt_is_pressed = true,
   disable_default_key_bindings                = true,
   keys                                        = {
-    { key = "=", mods = "CMD", action = action.ResetFontSize },
-    { key = "-", mods = "CMD", action = action.DecreaseFontSize },
-    { key = "+", mods = "CMD", action = action.IncreaseFontSize },
-    { key = "P", mods = "CMD", action = action.ActivateCommandPalette },
-    { key = "V", mods = "CMD", action = action.PasteFrom("Clipboard") },
-    { key = "q", mods = "CMD", action = action.CloseCurrentPane { confirm = true } },
+    { key = "=",     mods = "CMD",  action = action.ResetFontSize },
+    { key = "-",     mods = "CMD",  action = action.DecreaseFontSize },
+    { key = "+",     mods = "CMD",  action = action.IncreaseFontSize },
+    { key = "c",     mods = "CMD",  action = action.CopyTo("Clipboard") },
+    { key = "v",     mods = "CMD",  action = action.PasteFrom("Clipboard") },
+    { key = "Copy",  mods = "NONE", action = action.CopyTo("Clipboard") },
+    { key = "Paste", mods = "NONE", action = action.PasteFrom("Clipboard") },
+    { key = "q",     mods = "CMD",  action = action.CloseCurrentPane { confirm = true } },
   }
 }
 
