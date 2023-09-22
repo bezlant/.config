@@ -64,7 +64,8 @@ alias lg='lazygit'
 alias nrc='nvim -c "cd $HOME/.config/nvim/" $HOME/.config/nvim/lua/config/plugins.lua'
 alias zshrc='vim $HOME/.zshrc'
 alias ytd='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
-alias ytt='youtube-dl --write-thumbnail --skip-download'
+alias ytt='yt-dlp --write-thumbnail --skip-download'
+alias wtj='for i in *.webp; do ffmpeg -i "${i}" -q:v 1 -bsf:v mjpeg2jpeg "${i%.webp}.jpg"; done && rm *.webp'
 
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
