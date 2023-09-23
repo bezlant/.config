@@ -12,3 +12,9 @@ keybinding:
     moveUpCommit: '<c-p>'
 services:
   'git@gitlab.ozon.ru': 'gitlab:git@gitlab.ozon.ru'
+customCommands:
+  - key: 'L'
+    command: "git log --graph --all --color=always --decorate --date=relative  --pretty=medium --stat"
+    context: 'global'
+    subprocess: true
+    description: 'full log'
