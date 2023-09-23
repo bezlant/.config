@@ -41,7 +41,9 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 # Keybindings
-bindkey '^I' autosuggest-accept
+bindkey '^ I'   complete-word       # tab          | complete
+bindkey '^ [[Z' autosuggest-accept  # shift + tab  | autosuggest
+
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 ZSH_AUTOSUGGEST_USE_ASYNC=true
