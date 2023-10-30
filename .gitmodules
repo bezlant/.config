@@ -4,42 +4,12 @@
 [submodule "zsh/plugins/zsh-autosuggestions"]
 	path = zsh/plugins/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
-[submodule "zsh/plugins/-f"]
-	path = zsh/plugins/-f
-	url = https://github.com/joshskidmore/zsh-fzf-history-search
 [submodule "zsh/plugins/zsh-fzf-history-search"]
 	path = zsh/plugins/zsh-fzf-history-search
 	url = https://github.com/joshskidmore/zsh-fzf-history-search
 [submodule "zsh/plugins/zsh-syntax-highlighting"]
 	path = zsh/plugins/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
-[submodule "tmux/plugins/tmux-continuum"]
-	path = tmux/plugins/tmux-continuum
-	url = https://github.com/tmux-plugins/tmux-continuum
-[submodule "tmux/plugins/tmux-open"]
-	path = tmux/plugins/tmux-open
-	url = https://github.com/tmux-plugins/tmux-open
-[submodule "tmux/plugins/tmux-sensible"]
-	path = tmux/plugins/tmux-sensible
-	url = https://github.com/tmux-plugins/tmux-sensible
 [submodule "tmux/plugins/tpm"]
 	path = tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
-[submodule "tmux/plugins/tmux-cpu"]
-	path = tmux/plugins/tmux-cpu
-	url = https://github.com/tmux-plugins/tmux-cpu
-[submodule "tmux/plugins/tmux-pomodoro-plus"]
-	path = tmux/plugins/tmux-pomodoro-plus
-	url = https://github.com/olimorris/tmux-pomodoro-plus
-[submodule "tmux/plugins/tmux-online-status"]
-	path = tmux/plugins/tmux-online-status
-	url = https://github.com/tmux-plugins/tmux-online-status
-[submodule "tmux/plugins/tmux-mode-indicator"]
-	path = tmux/plugins/tmux-mode-indicator
-	url = https://github.com/MunifTanjim/tmux-mode-indicator
-[submodule "tmux/plugins/tmux-battery"]
-	path = tmux/plugins/tmux-battery
-	url = https://github.com/tmux-plugins/tmux-battery
-[submodule "tmux/plugins/tmux-resurrect"]
-	path = tmux/plugins/tmux-resurrect
-	url = https://github.com/tmux-plugins/tmux-resurrect
