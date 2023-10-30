@@ -4,6 +4,7 @@ local action = wezterm.action
 
 config = {
   color_scheme                                = "Dracula (Official)",
+  native_macos_fullscreen_mode                = true,
   font                                        = wezterm.font("Victor Mono"),
   font_size                                   = 14,
   window_decorations                          = 'RESIZE',
