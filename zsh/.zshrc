@@ -41,8 +41,7 @@ export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8
 
 # Keybindings
-bindkey '^ I'   complete-word       # tab          | complete
-bindkey '^ [[Z' autosuggest-accept  # shift + tab  | autosuggest
+bindkey '^I' autosuggest-accept
 
 ZSH_AUTOSUGGEST_CLEAR_WIDGETS+=(buffer-empty bracketed-paste accept-line push-line-or-edit)
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
@@ -68,6 +67,7 @@ alias zshrc='vim $HOME/.zshrc'
 alias ytd='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ytt='yt-dlp --write-thumbnail --skip-download'
 alias wtj='for i in *.webp; do ffmpeg -i "${i}" -q:v 1 -bsf:v mjpeg2jpeg "${i%.webp}.jpg"; done && rm *.webp'
+alias cleanup='rm -rf *.jpg && rm -rf -- *.mp4 && rm -rf -- *.mp3 && rm -rf -- *.png && rm -rf done/*'
 
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -82,3 +82,38 @@ export NVM_DIR="$HOME/.nvm"
 export VAULT="/opt/homebrew/bin/vault"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+# Functions
+ytdl() {
+    local url="$1"
+    local output_template="$2"
+    
+    ytd "$url" -o "$output_template"  
+    ytt "$url" -o "$output_template"  
+    wtj
+    overlay "$output_template"
+}
+
+autoload -U add-zsh-hook
+
+load-nvmrc() {
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
