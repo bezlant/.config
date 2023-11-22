@@ -66,6 +66,7 @@ alias nrc='nvim $HOME/.config/nvim/lua/config/plugins.lua -c "cd $HOME/.config/n
 alias zshrc='vim $HOME/.zshrc'
 alias ytd='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ytt='yt-dlp --write-thumbnail --skip-download'
+alias yts='yt-dlp --write-auto-sub --sub-format "srt" --sub-langs "ru" --skip-download'
 alias wtj='for i in *.webp; do ffmpeg -i "${i}" -q:v 1 -bsf:v mjpeg2jpeg "${i%.webp}.jpg"; done && rm *.webp'
 alias cleanup='rm -rf *.jpg && rm -rf -- *.mp4 && rm -rf -- *.mp3 && rm -rf -- *.png && rm -rf done/*'
 
@@ -87,11 +88,16 @@ export PUPPETEER_EXECUTABLE_PATH=`which chromium`
 ytdl() {
     local url="$1"
     local output_template="$2"
-    
+
+    # vot-cli --output "$output_template" "$url" &
     ytd "$url" -o "$output_template"  
     ytt "$url" -o "$output_template"  
     wtj
     overlay "$output_template"
+}
+
+concat() {
+    ffmpeg -f concat -safe 0 -i "$1" -c copy "$1_concat.mp4"
 }
 
 autoload -U add-zsh-hook
@@ -117,3 +123,6 @@ load-nvmrc() {
 
 add-zsh-hook chpwd load-nvmrc
 load-nvmrc
+
+# Created by `pipx` on 2023-11-01 11:03:05
+export PATH="$PATH:/Users/abezlyudniy/.local/bin"
