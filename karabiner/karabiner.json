@@ -16,7 +16,32 @@
                     "basic.to_if_held_down_threshold_milliseconds": 500,
                     "mouse_motion_to_scroll.speed": 100
                 },
-                "rules": []
+                "rules": [
+                    {
+                        "description": "Map Button4 to Shift+Delete",
+                        "manipulators": [
+                            {
+                                "from": {
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    },
+                                    "pointing_button": "button4"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    }
+                ]
             },
             "devices": [
                 {
@@ -168,9 +193,20 @@
                         "product_id": 2100,
                         "vendor_id": 1118
                     },
-                    "ignore": true,
+                    "ignore": false,
                     "manipulate_caps_lock_led": true,
-                    "simple_modifications": [],
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "pointing_button": "button5"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "spacebar"
+                                }
+                            ]
+                        }
+                    ],
                     "treat_as_built_in_keyboard": false
                 },
                 {
@@ -192,6 +228,31 @@
                             "to": [
                                 {
                                     "key_code": "left_command"
+                                }
+                            ]
+                        }
+                    ],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 64,
+                        "vendor_id": 6421
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "pointing_button": "button5"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "spacebar"
                                 }
                             ]
                         }
