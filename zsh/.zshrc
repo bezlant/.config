@@ -53,9 +53,9 @@ bindkey "^N" down-line-or-search
 # Aliases
 alias vim='nvim'
 alias vi='nvim'
-alias ll="exa -l -g --icons"
+alias ll="eza -l -g --icons"
 alias la="ll -a"
-alias ls="exa --icons -F --sort=name --oneline"
+alias ls="eza --icons -F --sort=name --oneline"
 alias tree="ls -T"
 alias bmake='bear -- make'
 alias clang-dump="clang-format -style=llvm -dump-config > .clang-format"

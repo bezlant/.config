@@ -6,3 +6,5 @@ lazygit/state.yml
 .nuxtrc
 github-copilot
 tmux/resurrect
+raycast/extensions
+matterhorn
