@@ -70,6 +70,7 @@ alias yts='yt-dlp --write-auto-sub --sub-format "srt" --sub-langs "ru" --skip-do
 alias wtj='for i in *.webp; do ffmpeg -i "${i}" -q:v 1 -bsf:v mjpeg2jpeg "${i%.webp}.jpg"; done && rm *.webp'
 alias cleanup='rm -rf *.jpg && rm -rf -- *.mp4 && rm -rf -- *.mp3 && rm -rf -- *.png && rm -rf done/*'
 alias libgen='libgen-downloader'
+alias mm='matterhorn'
 
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
