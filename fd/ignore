@@ -1,0 +1,13 @@
+.git/
+Applications/
+Library/Caches/
+.cache/
+*.ttf
+.DS_Store
+*.jpeg
+*.png
+Library/Fonts/
+Library/
+.Trash/
+**/Cache/
+node_modules/**

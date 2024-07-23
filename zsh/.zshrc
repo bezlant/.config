@@ -70,7 +70,9 @@ alias yts='yt-dlp --write-auto-sub --sub-format "srt" --sub-langs "ru" --skip-do
 alias wtj='for i in *.webp; do ffmpeg -i "${i}" -q:v 1 -bsf:v mjpeg2jpeg "${i%.webp}.jpg"; done && rm *.webp'
 alias cleanup='rm -rf *.jpg && rm -rf -- *.mp4 && rm -rf -- *.mp3 && rm -rf -- *.png && rm -rf done/*'
 alias libgen='libgen-downloader'
-alias mm='matterhorn'
+alias -g -- -h='-h 2>&1 | bat --language=help --style=grid'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=grid'
+export FZF_DEFAULT_COMMAND="fd --type f --follow --hidden --max-depth 8 --color=never"
 
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
@@ -80,6 +82,7 @@ export VISUAL=nvim
 export HISTFILE="$HOME/.cache/.zsh_history"
 export LESSHISTFILE="$HOME/.cache/.less_history"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
+export PATH="$(brew --prefix python@3.10)/libexec/bin:$PATH"
 export NVM_DIR="$HOME/.nvm"
 
 export VAULT="/opt/homebrew/bin/vault"
