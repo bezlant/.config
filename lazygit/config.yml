@@ -2,8 +2,12 @@ gui:
   nerdFontsVersion: "3" 
   skipRewordInEditorWarning: true
 os:
-  editPreset: 'nvim' 
   open: 'nvim'
+  edit: 'nvr --servername "$NVIM" -l -s --remote {{filename}}'
+  editAtLine: 'nvr --servername "$NAME" -l -s -c {{line}} --remote {{filename}}'
+  editAtLineAndWait: 'nvim +{{line}} {{filename}}'
+  openDirInEditor: 'nvr --servername "$NVIM" -l -s --remote {{dir}}'
+  editInTerminal: true
 keybinding:
   commits:
     moveDownCommit: '<c-n>'

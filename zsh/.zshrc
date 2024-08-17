@@ -77,17 +77,28 @@ export FZF_DEFAULT_COMMAND="fd --type f --follow --hidden --max-depth 8 --color=
 # Exports
 export XDG_CONFIG_HOME="$HOME/.config"
 export GPG_TTY=$(tty)
-export EDITOR=nvim
-export VISUAL=nvim
 export HISTFILE="$HOME/.cache/.zsh_history"
 export LESSHISTFILE="$HOME/.cache/.less_history"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$(brew --prefix python@3.10)/libexec/bin:$PATH"
+export PATH="$PATH:$HOME/.spoof-dpi/bin"
 export NVM_DIR="$HOME/.nvm"
 
 export VAULT="/opt/homebrew/bin/vault"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+else
+    export VISUAL="nvim"
+    export EDITOR="nvim"
+fi
+
+if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
+    alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
+fi
 
 # Functions
 ytdl() {
