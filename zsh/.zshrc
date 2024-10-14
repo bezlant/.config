@@ -62,7 +62,7 @@ alias clang-dump="clang-format -style=llvm -dump-config > .clang-format"
 alias vg='valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind_result.txt'
 alias gcl='git clone'
 alias lg='lazygit'
-alias nrc='nvim $HOME/.config/nvim/lua/config/plugins.lua -c "cd $HOME/.config/nvim/"'
+alias nrc='nvim $HOME/.config/nvim/ -c "cd $HOME/.config/nvim/"'
 alias zshrc='vim $HOME/.zshrc'
 alias ytd='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
 alias ytt='yt-dlp --write-thumbnail --skip-download'
