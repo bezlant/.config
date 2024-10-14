@@ -1,22 +1,49 @@
 gui:
   nerdFontsVersion: "3" 
   skipRewordInEditorWarning: true
+  filterMode: fuzzy
 os:
   open: 'nvim'
+  openLink: open "$(echo {{link}} | sed 's/%2F/\//g')"
   edit: 'nvr --servername "$NVIM" -l -s --remote {{filename}}'
   editAtLine: 'nvr --servername "$NAME" -l -s -c {{line}} --remote {{filename}}'
   editAtLineAndWait: 'nvim +{{line}} {{filename}}'
   openDirInEditor: 'nvr --servername "$NVIM" -l -s --remote {{dir}}'
   editInTerminal: true
-keybinding:
-  commits:
-    moveDownCommit: '<c-n>'
-    moveUpCommit: '<c-p>'
+
 services:
   'git@gitlab.ozon.ru': 'gitlab:git@gitlab.ozon.ru'
+
+git:
+  paging:
+    externalDiffCommand: 'difft --color=always --display=inline --syntax-highlight=on --tab-width=2'
+  commitPrefixes:
+    seller-ui:
+      pattern: "^(ITEM-\\d+).*"
+      replace: '[$1] (feat) '
+
 customCommands:
-  - key: 'L'
-    command: "git log --graph --all --color=always --decorate --date=relative  --pretty=medium --stat"
-    context: 'global'
-    subprocess: true
-    description: 'full log'
+  # Shortcut to prune branches that have been deleted from remote
+  - key: "<c-p>" # Prune deleted remote branches
+    command: "git remote prune {{.SelectedRemote.Name}}"
+    context: "remotes"
+    loadingText: "Pruning..."
+    description: "prune deleted remote branches"
+
+  # Shortcut to prune local merged branches that have been merged to master
+  - key: "b" # Prune local merged branches
+    command: "git branch --merged master | grep -v '^[ *]*master$' | xargs -r git branch -d"
+    context: "localBranches"
+    loadingText: "Pruning..."
+    description: "prune local branches that have been merged to master"
+
+update:
+    method: background
+    days: 2
+
+refresher:
+  # File/submodule refresh interval in seconds.
+  refreshInterval: 10
+
+  # Re-fetch interval in seconds.
+  fetchInterval: 60
