@@ -20,7 +20,7 @@ git:
   commitPrefixes:
     seller-ui:
       pattern: "^(ITEM-\\d+).*"
-      replace: '[$1] (feat) '
+      replace: '[$1] ('
 
 customCommands:
   # Shortcut to prune branches that have been deleted from remote
