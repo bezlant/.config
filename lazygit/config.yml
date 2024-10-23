@@ -21,6 +21,9 @@ git:
     seller-ui:
       pattern: "^(ITEM-\\d+).*"
       replace: '[$1] ('
+    sx-qa-test:
+      pattern: "^(ITEM-\\d+).*"
+      replace: '[$1] ('
 
 customCommands:
   # Shortcut to prune branches that have been deleted from remote
