@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 local action = wezterm.action
 
 config = {
+	max_fps = 120,
 	color_scheme = "Dracula (Official)",
 	native_macos_fullscreen_mode = true,
 	font = wezterm.font("VictorMono Nerd Font"),
