@@ -20,7 +20,6 @@ plugins=(
   copyfile
   copypath
   npm
-  nvm
   sudo
   tmux
   vi-mode
@@ -81,8 +80,7 @@ export HISTFILE="$HOME/.cache/.zsh_history"
 export LESSHISTFILE="$HOME/.cache/.less_history"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$(brew --prefix python@3.10)/libexec/bin:$PATH"
-export PATH="$PATH:$HOME/.spoof-dpi/bin"
-export NVM_DIR="$HOME/.nvm"
+export PATH="$HOME/.bun/bin:$PATH"
 
 export VAULT="/opt/homebrew/bin/vault"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
@@ -118,27 +116,17 @@ concat() {
 
 autoload -U add-zsh-hook
 
-load-nvmrc() {
-  local nvmrc_path
-  nvmrc_path="$(nvm_find_nvmrc)"
-
-  if [ -n "$nvmrc_path" ]; then
-    local nvmrc_node_version
-    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
-
-    if [ "$nvmrc_node_version" = "N/A" ]; then
-      nvm install
-    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
-      nvm use
-    fi
-  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
-    echo "Reverting to nvm default version"
-    nvm use default
-  fi
-}
-
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
-
 # Created by `pipx` on 2023-11-01 11:03:05
 export PATH="$PATH:/Users/abezlyudniy/.local/bin"
+
+# fnm
+FNM_PATH="/Users/abezlyudniy/Library/Application Support/fnm"
+if [ -d "$FNM_PATH" ]; then
+  export PATH="/Users/abezlyudniy/Library/Application Support/fnm:$PATH"
+  eval "`fnm env`"
+fi
+
+eval "$(fnm env --use-on-cd --shell zsh)"
+
+# bun completions
+[ -s "/Users/abezlyudniy/.bun/_bun" ] && source "/Users/abezlyudniy/.bun/_bun"
