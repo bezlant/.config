@@ -7,6 +7,15 @@
 
 [core]
 	editor = nvim
+	pager = delta
+
+[delta]
+	features = decorations
+	light = false
+	tabs = 2
+	line-numbers = true
+	navigate = true
+	hyperlinks = true
 
 [color]
 	branch = auto
