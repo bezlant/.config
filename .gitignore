@@ -9,3 +9,6 @@ tmux/resurrect
 raycast/extensions
 matterhorn
 openai
+colima
+.nuxt/devtools
+atlassian-cli

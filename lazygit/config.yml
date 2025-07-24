@@ -1,52 +1,45 @@
 gui:
-  nerdFontsVersion: "3" 
-  skipRewordInEditorWarning: true
-  filterMode: fuzzy
+    nerdFontsVersion: "3"
+    skipRewordInEditorWarning: true
+    filterMode: fuzzy
 os:
-  open: 'nvim'
-  openLink: open "$(echo {{link}} | sed 's/%2F/\//g')"
-  edit: 'nvr --servername "$NVIM" -l -s --remote {{filename}}'
-  editAtLine: 'nvr --servername "$NAME" -l -s -c {{line}} --remote {{filename}}'
-  editAtLineAndWait: 'nvim +{{line}} {{filename}}'
-  openDirInEditor: 'nvr --servername "$NVIM" -l -s --remote {{dir}}'
-  editInTerminal: true
-
+    open: 'nvim'
+    openLink: open "$(echo {{link}} | sed 's/%2F/\//g')"
+    editPreset: 'nvim-remote'
+    edit: "nvr --remote-send '<CR><CMD>q<CR><CMD>lua local root = vim.fn.trim(vim.fn.system(\"git rev-parse --show-toplevel\")); vim.cmd(\"e \" .. root .. \"/\" .. {{filename}})<CR>'"
+    openDirInEditor: 'nvr --servername "$NVIM" -l -s --remote {{dir}}'
+    editAtLineAndWait: 'nvim +{{line}} {{filename}}'
+    editInTerminal: true
 services:
-  'git@gitlab.ozon.ru': 'gitlab:git@gitlab.ozon.ru'
-
+    'git@gitlab.ozon.ru': 'gitlab:git@gitlab.ozon.ru'
 git:
-  paging:
-    externalDiffCommand: 'difft --color=always --display=inline --syntax-highlight=on --tab-width=2'
-  commitPrefixes:
-    seller-ui:
-      pattern: "^(ITEM-\\d+).*"
-      replace: '[$1] ('
-    sx-qa-test:
-      pattern: "^(ITEM-\\d+).*"
-      replace: '[$1] ('
-
+    paging:
+        externalDiffCommand: 'difft --color=always --display=inline --syntax-highlight=on --tab-width=2'
+    commitPrefixes:
+        seller-ui:
+            - pattern: "^(STORE-\\d+).*"
+              replace: '[$1] ('
+        sx-qa-test:
+            - pattern: "^(STORE-\\d+).*"
+              replace: '[$1] ('
 customCommands:
-  # Shortcut to prune branches that have been deleted from remote
-  - key: "<c-p>" # Prune deleted remote branches
-    command: "git remote prune {{.SelectedRemote.Name}}"
-    context: "remotes"
-    loadingText: "Pruning..."
-    description: "prune deleted remote branches"
-
-  # Shortcut to prune local merged branches that have been merged to master
-  - key: "b" # Prune local merged branches
-    command: "git branch --merged master | grep -v '^[ *]*master$' | xargs -r git branch -d"
-    context: "localBranches"
-    loadingText: "Pruning..."
-    description: "prune local branches that have been merged to master"
-
+    # Shortcut to prune branches that have been deleted from remote
+    - key: "<c-p>" # Prune deleted remote branches
+      command: "git remote prune {{.SelectedRemote.Name}}"
+      context: "remotes"
+      loadingText: "Pruning..."
+      description: "prune deleted remote branches"
+    # Shortcut to prune local merged branches that have been merged to master
+    - key: "b" # Prune local merged branches
+      command: "git branch --merged master | grep -v '^[ *]*master$' | xargs -r git branch -d"
+      context: "localBranches"
+      loadingText: "Pruning..."
+      description: "prune local branches that have been merged to master"
 update:
     method: background
     days: 2
-
 refresher:
-  # File/submodule refresh interval in seconds.
-  refreshInterval: 10
-
-  # Re-fetch interval in seconds.
-  fetchInterval: 60
+    # File/submodule refresh interval in seconds.
+    refreshInterval: 10
+    # Re-fetch interval in seconds.
+    fetchInterval: 60

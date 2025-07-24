@@ -2,10 +2,10 @@
 # examples: https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
 # ghostty +list-fonts
-font-size = 14
-font-family = "VictorMono Nerd Font"
-font-family-italic = "VictorMono Nerd Font"
-font-family-bold-italic = "VictorMono Nerd Font"
+font-size = 15
+font-family = "Victor Mono"
+font-family-italic = "Victor Mono"
+font-family-bold-italic = "Victor Mono"
 
 # ghostty +list-themes
 theme = "Dracula Official"

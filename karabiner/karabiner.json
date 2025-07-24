@@ -76,13 +76,17 @@
                         "product_id": 64,
                         "vendor_id": 6421
                     },
-                    "ignore": false,
-                    "simple_modifications": [
-                        {
-                            "from": { "pointing_button": "button5" },
-                            "to": [{ "key_code": "spacebar" }]
-                        }
-                    ]
+                    "ignore": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": true,
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 10203,
+                        "vendor_id": 5824
+                    },
+                    "ignore": false
                 }
             ],
             "name": "Default profile",
@@ -91,6 +95,10 @@
                 {
                     "from": { "key_code": "caps_lock" },
                     "to": [{ "key_code": "escape" }]
+                },
+                {
+                    "from": { "key_code": "delete_forward" },
+                    "to": [{ "key_code": "left_command" }]
                 }
             ],
             "virtual_hid_keyboard": {

@@ -81,6 +81,8 @@ export LESSHISTFILE="$HOME/.cache/.less_history"
 export PATH="$HOME/.local/share/nvim/mason/bin:$PATH"
 export PATH="$(brew --prefix python@3.10)/libexec/bin:$PATH"
 export PATH="$HOME/.bun/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$PATH:$GOPATH/bin"
 
 export VAULT="/opt/homebrew/bin/vault"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
@@ -130,3 +132,8 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 # bun completions
 [ -s "/Users/abezlyudniy/.bun/_bun" ] && source "/Users/abezlyudniy/.bun/_bun"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/abezlyudniy/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
