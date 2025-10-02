@@ -7,8 +7,8 @@
 # @raycast.packageName Utilities
 
 -- CONFIG: Netzone toggle coordinates
-set netzoneX to 843
-set netzoneY to 423
+set netzoneX to 850
+set netzoneY to 450
 
 -- -----------------------------
 -- 1️⃣ Check Shadowrocket state

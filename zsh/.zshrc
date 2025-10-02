@@ -3,7 +3,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 # zstyle ':omz:update' mode disabled  # disable automatic updates
-zstyle ':omz:update' mode auto      # update automatically without asking
+zstyle ':omz:update' mode auto # update automatically without asking
 zstyle ':omz:update' frequency 14
 
 # Uncomment the following line to enable command auto-correction.
@@ -16,7 +16,7 @@ ZSH_CUSTOM=$HOME/.config/zsh
 plugins=(
   aliases
   brew
-  colored-man-pages 
+  colored-man-pages
   copyfile
   copypath
   npm
@@ -25,11 +25,10 @@ plugins=(
   vi-mode
   web-search
   yarn
-  zsh-autosuggestions 
+  zsh-autosuggestions
   zsh-fzf-history-search
   zsh-syntax-highlighting
 )
-
 
 source $ZSH/oh-my-zsh.sh
 
@@ -50,8 +49,9 @@ bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
 # Aliases
-alias vim='nvim'
-alias vi='nvim'
+alias vim='nvim --listen /tmp/nvimsocket'
+alias nvim='nvim --listen /tmp/nvimsocket'
+alias vi='nvim --listen /tmp/nvimsocket'
 alias ll="eza -l -g --icons"
 alias la="ll -a"
 alias ls="eza --icons -F --sort=name --oneline"
@@ -86,34 +86,34 @@ export PATH="$PATH:$GOPATH/bin"
 
 export VAULT="/opt/homebrew/bin/vault"
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
-export PUPPETEER_EXECUTABLE_PATH=`which chromium`
+export PUPPETEER_EXECUTABLE_PATH=$(which chromium)
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
-    export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  export VISUAL="nvr -cc split --remote-wait +'set bufhidden=wipe'"
+  export EDITOR="nvr -cc split --remote-wait +'set bufhidden=wipe'"
 else
-    export VISUAL="nvim"
-    export EDITOR="nvim"
+  export VISUAL="nvim"
+  export EDITOR="nvim"
 fi
 
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
-    alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
+  alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
 fi
 
 # Functions
 ytdl() {
-    local url="$1"
-    local output_template="$2"
+  local url="$1"
+  local output_template="$2"
 
-    # vot-cli --output "$output_template" "$url" &
-    ytd "$url" -o "$output_template"  
-    ytt "$url" -o "$output_template"  
-    wtj
-    overlay "$output_template"
+  # vot-cli --output "$output_template" "$url" &
+  ytd "$url" -o "$output_template"
+  ytt "$url" -o "$output_template"
+  wtj
+  overlay "$output_template"
 }
 
 concat() {
-    ffmpeg -f concat -safe 0 -i "$1" -c copy "$1_concat.mp4"
+  ffmpeg -f concat -safe 0 -i "$1" -c copy "$1_concat.mp4"
 }
 
 autoload -U add-zsh-hook
@@ -125,7 +125,7 @@ export PATH="$PATH:/Users/abezlyudniy/.local/bin"
 FNM_PATH="/Users/abezlyudniy/Library/Application Support/fnm"
 if [ -d "$FNM_PATH" ]; then
   export PATH="/Users/abezlyudniy/Library/Application Support/fnm:$PATH"
-  eval "`fnm env`"
+  eval "$(fnm env)"
 fi
 
 eval "$(fnm env --use-on-cd --shell zsh)"
