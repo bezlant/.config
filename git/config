@@ -1,6 +1,5 @@
 [user]
-  email = abezlyudniy@ozon.ru
-  name = abezlyudniy
+  name = bezlant
 
 [help]
 	autocorrect = 1
@@ -31,8 +30,6 @@
 [diff]
 	tool = vimdiff
 
-[url "git@gitlab.ozon.ru:"]
-       insteadOf = https://gitlab.ozon.ru/
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

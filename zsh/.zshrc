@@ -49,9 +49,8 @@ bindkey "^P" up-line-or-search
 bindkey "^N" down-line-or-search
 
 # Aliases
-alias vim='nvim --listen /tmp/nvimsocket'
-alias nvim='nvim --listen /tmp/nvimsocket'
-alias vi='nvim --listen /tmp/nvimsocket'
+alias vim='nvim'
+alias vi='nvim'
 alias ll="eza -l -g --icons"
 alias la="ll -a"
 alias ls="eza --icons -F --sort=name --oneline"
@@ -95,7 +94,6 @@ else
   export VISUAL="nvim"
   export EDITOR="nvim"
 fi
-
 if [ -n "$NVIM_LISTEN_ADDRESS" ]; then
   alias nvim=nvr -cc split --remote-wait +'set bufhidden=wipe'
 fi

@@ -6,31 +6,8 @@ os:
   open: "nvim"
   openLink: open "$(echo {{link}} | sed 's/%2F/\//g')"
   editPreset: "nvim-remote"
-services:
-  "git@gitlab.ozon.ru": "gitlab:gitlab.ozon.ru"
-git:
-  paging:
-    externalDiffCommand: "difft --color=always --display=inline --syntax-highlight=on --tab-width=2"
-  commitPrefixes:
-    seller-ui:
-      - pattern: "^(STORE-\\d+).*"
-        replace: "[$1] ("
-    sx-qa-test:
-      - pattern: "^(STORE-\\d+).*"
-        replace: "[$1] ("
-customCommands:
-  # Shortcut to prune branches that have been deleted from remote
-  - key: "<c-p>" # Prune deleted remote branches
-    command: "git remote prune {{.SelectedRemote.Name}}"
-    context: "remotes"
-    loadingText: "Pruning..."
-    description: "prune deleted remote branches"
-  # Shortcut to prune local merged branches that have been merged to master
-  - key: "b" # Prune local merged branches
-    command: "git branch --merged master | grep -v '^[ *]*master$' | xargs -r git branch -d"
-    context: "localBranches"
-    loadingText: "Pruning..."
-    description: "prune local branches that have been merged to master"
+  edit: 'nvr --remote-send ''<CMD>q<CR><CMD>lua vim.cmd("e " .. {{filename}})<CR>'''
+  editAtLine: 'nvr --remote-send ''<CMD>q<CR><CMD>lua vim.cmd("e " .. {{filename}})<CR>{{line}}G'''
 update:
   method: background
   days: 2
