@@ -127,11 +127,3 @@ if [ -d "$FNM_PATH" ]; then
 fi
 
 eval "$(fnm env --use-on-cd --shell zsh)"
-
-# bun completions
-[ -s "/Users/abezlyudniy/.bun/_bun" ] && source "/Users/abezlyudniy/.bun/_bun"
-# The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=(/Users/abezlyudniy/.docker/completions $fpath)
-autoload -Uz compinit
-compinit
-# End of Docker CLI completions
