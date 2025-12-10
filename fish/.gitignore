@@ -1,0 +1,6 @@
+functions/*
+conf.d/*
+completions/*
+
+!functions/personal/
+!conf.d/personal/
