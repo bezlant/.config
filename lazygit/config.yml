@@ -2,12 +2,12 @@ gui:
   nerdFontsVersion: "3"
   skipRewordInEditorWarning: true
   filterMode: fuzzy
+promptToReturnFromSubprocess: false
 os:
   open: "nvim"
   openLink: open "$(echo {{link}} | sed 's/%2F/\//g')"
-  editPreset: "nvim-remote"
-  edit: 'nvr --remote-send ''<CMD>q<CR><CMD>lua vim.cmd("e " .. {{filename}})<CR>'''
-  editAtLine: 'nvr --remote-send ''<CMD>q<CR><CMD>lua vim.cmd("e " .. {{filename}})<CR>{{line}}G'''
+  edit: 'set -q NVIM; and nvr --servername $NVIM --remote-send ''<CMD>q<CR><CMD>lua vim.cmd("e " .. {{filename}})<CR>''; or nvim {{filename}}'
+  editAtLine: 'set -q NVIM; and nvr --servername $NVIM --remote-send ''<CMD>q<CR><CMD>lua vim.cmd("e " .. {{filename}})<CR>{{line}}G''; or nvim +{{line}} {{filename}}'
 update:
   method: background
   days: 2
