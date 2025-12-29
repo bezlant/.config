@@ -1,7 +1,7 @@
 # docs: ghostty +show-config --default --docs | nvim
 # examples: https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 # builds for the latest commit on the main branch
-auto-update-channel = tip
+auto-update-channel = stable
 
 # ghostty +list-fonts
 font-size = 15
