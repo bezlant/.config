@@ -1,6 +1,9 @@
+# Ignore plugin-managed directories
 functions/*
 conf.d/*
 completions/*
+themes/*
 
-!functions/personal/
-!conf.d/personal/
+# Track personal files (my-* prefix)
+!functions/fish_user_key_bindings.fish
+!conf.d/my-*
