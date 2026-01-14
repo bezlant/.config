@@ -41,3 +41,6 @@ set -gx PATH $GOPATH/bin $PATH
 set -gx FZF_DEFAULT_COMMAND 'fd --type f --follow --hidden --max-depth 8 --color=never'
 
 set -gx LESSHISTFILE "$HOME/.cache/.less_history"
+
+# --- Claude Code ---
+set -gx CLAUDE_CODE_MAX_OUTPUT_TOKENS 64000

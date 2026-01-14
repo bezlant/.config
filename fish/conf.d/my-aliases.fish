@@ -11,10 +11,10 @@ alias tree="ls -T"
 alias gcl="git clone"
 alias cd="z"
 alias lg="lazygit"
-alias nrc='vim $HOME/.config/nvim -c "cd $HOME/.config/nvim"'
+alias nrc='vim -c "cd $HOME/.config/nvim" -c "lua require(\'oil\').open()"'
 
 # --- misc commands ---
-alias fishrc='vim $HOME/.config/fish -c "cd $HOME/.config/fish"' 
+alias fishrc='vim -c "cd $HOME/.config/fish" -c "lua require(\'oil\').open()"' 
 alias libgen="libgen-downloader"
 
 # --- yt-dlp helpers ---

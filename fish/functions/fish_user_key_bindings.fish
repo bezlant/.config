@@ -17,4 +17,14 @@ function fish_user_key_bindings
     # Bind Ctrl+F to open nvim with Snacks picker files
     bind -M insert \cf 'commandline -r ""; nvim -c "lua Snacks.picker.files()"'
     bind -M default \cf 'commandline -r ""; nvim -c "lua Snacks.picker.files()"'
+
+    # Bind Ctrl+N and Ctrl+P for history substring search
+    bind -M insert \cn down-or-search
+    bind -M insert \cp up-or-search
+    bind -M default \cn down-or-search
+    bind -M default \cp up-or-search
+
+    # Bind Ctrl+G for config shortcuts chord
+    bind -M insert \cg '__config_chord'
+    bind -M default \cg '__config_chord'
 end

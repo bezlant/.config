@@ -6,4 +6,5 @@ themes/*
 
 # Track personal files (my-* prefix)
 !functions/fish_user_key_bindings.fish
+!functions/__config_chord.fish
 !conf.d/my-*
