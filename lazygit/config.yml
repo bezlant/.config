@@ -16,3 +16,7 @@ refresher:
   refreshInterval: 10
   # Re-fetch interval in seconds.
   fetchInterval: 60
+keybinding:
+  commits:
+    moveDownCommit: 'J'
+    moveUpCommit: 'K'
