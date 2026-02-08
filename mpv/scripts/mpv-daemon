@@ -3,18 +3,22 @@ PATH="/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin"
 
 SOCKET="$HOME/.mpv-audio.sock"
 
-# already running?
+# Check if socket exists and is still connected
 if [ -S "$SOCKET" ]; then
-  exit 0
+  # Try to connect - if it fails, socket is stale
+  if printf '{ "command": ["get_property", "idle"] }\n' | socat -t 0.1 - "UNIX-CONNECT:$SOCKET" >/dev/null 2>&1; then
+    # Socket is alive and connected
+    exit 0
+  else
+    # Stale socket - remove it
+    rm -f "$SOCKET"
+  fi
 fi
 
-exec /opt/homebrew/bin/mpv \
+nohup /opt/homebrew/bin/mpv \
   --no-video \
   --idle=yes \
   --keep-open=yes \
-  --idle-exit=600 \
   --input-ipc-server="$SOCKET" \
-  --really-quiet \
   --force-window=no \
-  --no-terminal \
-  </dev/null >/dev/null 2>&1 &
+  >/dev/null 2>&1 &

@@ -3,7 +3,13 @@ PATH="/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin"
 
 SOCKET="$HOME/.mpv-audio.sock"
 
-[ -S "$SOCKET" ] || exit 0
+# Check if socket exists
+if [ ! -S "$SOCKET" ]; then
+  exit 0
+fi
 
-printf '{ "command": ["stop"] }\n' \
-  | socat - UNIX-CONNECT:"$SOCKET" >/dev/null 2>&1
+# Try to send stop command - if it fails, remove stale socket
+if ! printf '{ "command": ["stop"] }\n' | socat -t 0.1 - "UNIX-CONNECT:$SOCKET" >/dev/null 2>&1; then
+  # Stale socket - clean it up
+  rm -f "$SOCKET"
+fi

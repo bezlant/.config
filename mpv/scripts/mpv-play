@@ -4,10 +4,16 @@ set -euo pipefail
 
 SOCKET="$HOME/.mpv-audio.sock"
 
-# ensure daemon is running
+# Check if daemon is running
 if [ ! -S "$SOCKET" ]; then
+  # No socket - start daemon
   "$HOME/.local/bin/mpv-daemon"
-  sleep 0.1
+  sleep 1
+elif ! printf '{ "command": ["get_property", "idle"] }\n' | socat -t 0.1 - "UNIX-CONNECT:$SOCKET" >/dev/null 2>&1; then
+  # Stale socket - remove and restart daemon
+  rm -f "$SOCKET"
+  "$HOME/.local/bin/mpv-daemon"
+  sleep 1
 fi
 
 # no args = toggle pause
