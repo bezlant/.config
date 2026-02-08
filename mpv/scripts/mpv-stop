@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+PATH="/usr/bin:/bin:/usr/sbin:/sbin:/opt/homebrew/bin"
+
 SOCKET="$HOME/.mpv-audio.sock"
 
 [ -S "$SOCKET" ] || exit 0
