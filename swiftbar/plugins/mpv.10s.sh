@@ -1,0 +1,1 @@
+/Users/abezlyudniy/.config/mpv/swiftbar/mpv.10s.sh

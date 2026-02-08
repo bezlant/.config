@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+SOCKET="$HOME/.mpv-audio.sock"
+
+[ -S "$SOCKET" ] || exit 0
+
+printf '{ "command": ["stop"] }\n' \
+  | socat - UNIX-CONNECT:"$SOCKET" >/dev/null 2>&1

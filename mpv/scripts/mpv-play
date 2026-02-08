@@ -1,0 +1,29 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+SOCKET="$HOME/.mpv-audio.sock"
+
+# ensure daemon is running
+if [ ! -S "$SOCKET" ]; then
+  "$HOME/.local/bin/mpv-daemon"
+  sleep 0.1
+fi
+
+# no args = toggle pause
+if [ "$#" -eq 0 ]; then
+  printf '{ "command": ["cycle", "pause"] }\n' \
+    | socat - UNIX-CONNECT:"$SOCKET"
+  exit 0
+fi
+
+for f in "$@"; do
+  f="${f/#\~/$HOME}"
+  f="$(cd "$(dirname "$f")" && pwd)/$(basename "$f")"
+
+  # force unpause, then load
+  printf '{ "command": ["set_property", "pause", false] }\n' \
+    | socat - UNIX-CONNECT:"$SOCKET"
+
+  printf '{ "command": ["loadfile", "%s", "replace"] }\n' "$f" \
+    | socat - UNIX-CONNECT:"$SOCKET"
+done

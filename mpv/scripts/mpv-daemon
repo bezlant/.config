@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+
+SOCKET="$HOME/.mpv-audio.sock"
+
+# already running?
+if [ -S "$SOCKET" ]; then
+  exit 0
+fi
+
+exec /opt/homebrew/bin/mpv \
+  --no-video \
+  --idle=yes \
+  --keep-open=yes \
+  --idle-exit=600 \
+  --input-ipc-server="$SOCKET" \
+  --really-quiet \
+  --force-window=no \
+  --no-terminal \
+  </dev/null >/dev/null 2>&1 &

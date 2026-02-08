@@ -1,0 +1,12 @@
+# mpv-play default handler configuration
+# Apply with: duti ~/.config/duti/com.local.mpv-play.duti
+
+com.local.mpv-play public.audio all
+com.local.mpv-play public.mp3 all
+com.local.mpv-play public.mpeg-4-audio all
+com.local.mpv-play com.apple.m4a-audio all
+com.local.mpv-play org.xiph.flac all
+com.local.mpv-play org.xiph.ogg-audio all
+com.local.mpv-play com.microsoft.waveform-audio all
+com.local.mpv-play public.aiff-audio all
+com.local.mpv-play public.aifc-audio all
