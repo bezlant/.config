@@ -44,3 +44,6 @@ set -gx LESSHISTFILE "$HOME/.cache/.less_history"
 
 # --- Claude Code ---
 set -gx CLAUDE_CODE_MAX_OUTPUT_TOKENS 64000
+
+# --- Mermaid CLI (Puppeteer) ---
+set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
