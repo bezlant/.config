@@ -16,7 +16,6 @@ theme = "Dracula Official"
 window-decoration = true
 fullscreen = true
 
-keybind = super+shift+comma=reload_config
 macos-option-as-alt = true
 
 copy-on-select = true

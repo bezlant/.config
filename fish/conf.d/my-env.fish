@@ -14,13 +14,6 @@ if test -x /opt/homebrew/bin/brew
     eval (/opt/homebrew/bin/brew shellenv)
 end
 
-# --- Python (Homebrew Python 3.10 shim) ---
-if command -q brew
-    set -l python_prefix (brew --prefix python@3.10 2>/dev/null)
-    and test -d "$python_prefix/libexec/bin"
-    and set -gx PATH $python_prefix/libexec/bin $PATH
-end
-
 # --- Neovim Mason binaries ---
 set -gx PATH $HOME/.local/share/nvim/mason/bin $PATH
 
@@ -47,3 +40,7 @@ set -gx CLAUDE_CODE_MAX_OUTPUT_TOKENS 64000
 
 # --- Mermaid CLI (Puppeteer) ---
 set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
+
+# Claude Code: force Sonnet 4.5 for all operations
+set -gx CLAUDE_CODE_SUBAGENT_MODEL claude-sonnet-4-5
+set -gx ANTHROPIC_DEFAULT_SONNET_MODEL claude-sonnet-4-5
