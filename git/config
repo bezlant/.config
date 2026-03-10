@@ -8,14 +8,6 @@
 [core]
 	editor = nvim
 
-[delta]
-	features = decorations
-	light = false
-	tabs = 2
-	line-numbers = true
-	navigate = true
-	hyperlinks = true
-
 [color]
 	branch = auto
 	diff = auto

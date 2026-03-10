@@ -41,6 +41,5 @@ set -gx CLAUDE_CODE_MAX_OUTPUT_TOKENS 64000
 # --- Mermaid CLI (Puppeteer) ---
 set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
-# Claude Code: force Sonnet 4.5 for all operations
-set -gx CLAUDE_CODE_SUBAGENT_MODEL claude-sonnet-4-5
-set -gx ANTHROPIC_DEFAULT_SONNET_MODEL claude-sonnet-4-5
+# Claude Code: force Opus for all operations
+set -gx CLAUDE_CODE_SUBAGENT_MODEL claude-opus-4-6

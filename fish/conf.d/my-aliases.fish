@@ -13,9 +13,15 @@ alias cd="z"
 alias lg="lazygit"
 alias nrc='vim -c "cd $HOME/.config/nvim" -c "lua require(\'oil\').open()"'
 
+# --- tmux ---
+alias tn='tmux new-session -s'
+function tp
+    set -l name (basename (pwd) | string replace -a '.' '-')
+    tmux new-session -As $name
+end
+
 # --- misc commands ---
-alias fishrc='vim -c "cd $HOME/.config/fish" -c "lua require(\'oil\').open()"' 
-alias libgen="libgen-downloader"
+alias fishrc='vim -c "cd $HOME/.config/fish" -c "lua require(\'oil\').open()"'
 
 # --- yt-dlp helpers ---
 alias ytd='yt-dlp -f "bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best"'
