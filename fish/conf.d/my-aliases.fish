@@ -20,6 +20,9 @@ function tp
     tmux new-session -As $name
 end
 
+# --- claude ---
+alias ccy='claude --dangerously-skip-permissions'
+
 # --- misc commands ---
 alias fishrc='vim -c "cd $HOME/.config/fish" -c "lua require(\'oil\').open()"'
 
