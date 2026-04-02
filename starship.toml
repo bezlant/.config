@@ -2,6 +2,7 @@
 "$schema" = 'https://starship.rs/config-schema.json'
 
 add_newline = false
+command_timeout = 1000
 
 [line_break]
 disabled = true
@@ -14,7 +15,8 @@ success_symbol = '[➜](bold green)' # The 'success_symbol' segment is being set
 [package]
 disabled = true
 
-command_timeout = 1000
+[python]
+python_binary = ['/Users/abezlyudniy/.pyenv/versions/3.13.11/bin/python3']
 
 [cmd_duration]
 disabled = true
