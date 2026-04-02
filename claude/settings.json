@@ -1,0 +1,82 @@
+{
+  "permissions": {},
+  "model": "claude-opus-4-6",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Read|Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/hooks/block-secrets.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/hooks/scan-commit-secrets.py"
+          },
+          {
+            "type": "command",
+            "command": "bash ~/.claude/hooks/filter-bash-search.sh"
+          },
+          {
+            "type": "command",
+            "command": "python3 ~/.claude/hooks/typecheck-before-push.py"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "matcher": "permission_prompt",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "fish ~/.claude/hooks/notify-permission.fish"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "fish ~/.claude/hooks/notify-done.fish"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline-simple.sh"
+  },
+  "enabledPlugins": {
+    "lua-lsp@claude-plugins-official": true,
+    "superpowers@superpowers-marketplace": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "pyright-lsp@claude-plugins-official": true,
+    "interface-design@interface-design": true,
+    "double-shot-latte@superpowers-marketplace": true,
+    "marketing-skills@marketingskills": true,
+    "swift-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true
+  },
+  "extraKnownMarketplaces": {
+    "claude-code-plugins": {
+      "source": {
+        "source": "github",
+        "repo": "anthropics/claude-code"
+      }
+    }
+  },
+  "effortLevel": "high",
+  "voiceEnabled": true,
+  "skipDangerousModePermissionPrompt": true
+}

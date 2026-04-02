@@ -1,0 +1,21 @@
+{
+  "theme": "dark",
+  "compact": "always",
+  "segments": [
+    {
+      "name": "context",
+      "enabled": true,
+      "format": "text"
+    },
+    {
+      "name": "block",
+      "enabled": true,
+      "format": "text",
+      "showTimeRemaining": false
+    }
+  ],
+  "disableGit": true,
+  "disableModel": true,
+  "disableDirectory": true,
+  "disableWeekly": true
+}

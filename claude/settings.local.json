@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(brew install:*)",
+      "Bash(defaults read:*)",
+      "Bash(killall bird:*)",
+      "Bash(sleep:*)",
+      "Bash(log show:*)",
+      "Bash(brctl status:*)",
+      "Bash(mdfind \"kMDItemCFBundleIdentifier == ''''md.obsidian''''\")"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true
+  }
+}
