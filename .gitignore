@@ -21,3 +21,5 @@ gh
 /swiftpm
 /.wrangler
 /vastai/vast_api_key
+/.android
+/.semgrep
