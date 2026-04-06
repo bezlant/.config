@@ -21,7 +21,7 @@ function tp
 end
 
 # --- claude ---
-alias ccy='claude --dangerously-skip-permissions'
+alias ccy='claude --dangerously-skip-permissions --teammate-mode tmux'
 
 # --- misc commands ---
 alias fishrc='vim -c "cd $HOME/.config/fish" -c "lua require(\'oil\').open()"'
