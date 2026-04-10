@@ -37,6 +37,11 @@ set -gx LESSHISTFILE "$HOME/.cache/.less_history"
 
 # --- Claude Code ---
 set -gx CLAUDE_CODE_MAX_OUTPUT_TOKENS 64000
+# Disable auto-memory (memory/ directory that Claude Code writes to across sessions).
+# Belt-and-suspenders with settings.json "autoMemoryEnabled": false.
+# Rationale: stale memory file once claimed "only dylan in production" when
+# xiaoxiao was live for 36 stories, nearly triggering deletion of prod audio.
+set -gx CLAUDE_CODE_DISABLE_AUTO_MEMORY 1
 
 # --- Mermaid CLI (Puppeteer) ---
 set -gx PUPPETEER_EXECUTABLE_PATH "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"

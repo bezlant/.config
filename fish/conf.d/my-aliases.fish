@@ -9,7 +9,9 @@ alias tree="ls -T"
 
 # --- build and dev tools ---
 alias gcl="git clone"
-alias cd="z"
+function cd --wraps z --description "zoxide with builtin cd fallback"
+    z $argv 2>/dev/null; or builtin cd $argv
+end
 alias lg="lazygit"
 alias nrc='vim -c "cd $HOME/.config/nvim" -c "lua require(\'oil\').open()"'
 

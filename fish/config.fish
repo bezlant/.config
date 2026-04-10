@@ -20,5 +20,5 @@ function print
     # Wake CUPS if needed
     curl -s http://localhost:631/ >/dev/null 2>&1
     sleep 1
-    lp -d HP_Smart_Tank_580 $argv
+    lp -d HP_Smart_Tank_580 -o ColorModel=Gray $argv
 end
