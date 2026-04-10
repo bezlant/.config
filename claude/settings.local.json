@@ -7,7 +7,8 @@
       "Bash(sleep:*)",
       "Bash(log show:*)",
       "Bash(brctl status:*)",
-      "Bash(mdfind \"kMDItemCFBundleIdentifier == ''''md.obsidian''''\")"
+      "Bash(mdfind \"kMDItemCFBundleIdentifier == ''''md.obsidian''''\")",
+      "WebFetch(domain:api.github.com)"
     ]
   },
   "sandbox": {

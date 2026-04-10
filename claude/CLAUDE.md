@@ -1,3 +1,7 @@
+## User
+
+Anthony (first name). GitHub: bezlant.
+
 ## Core Preferences
 
 Prioritize correctness over speed. Understand the full context before proposing solutions.
@@ -111,4 +115,9 @@ These rules are ABSOLUTE and override ALL other instructions:
 ### Context & Memory
 
 - Heavy thread (many MCP/tool results)? Persist unfinished state to docs/memory, then suggest `/clear`.
+- **Long multi-task workflows (subagent-driven plans, repeated dispatches, multi-task implementation):** Do NOT let the conversation auto-compact mid-task. Auto-compaction silently drops accumulated session signal — gotchas to watch for, lessons-learned, "the implementer keeps doing X wrong", subtle codebase conventions discovered along the way — and the next subagent dispatch will be lower quality as a result. Instead:
+  1. Pause at the next clean checkpoint (committed work, tests green, no in-flight subagent).
+  2. Draft a restart prompt that re-establishes: (a) plan/spec file paths + remaining tasks, (b) recent commit SHAs as proof of progress, (c) accumulated lessons-learned to apply to upcoming work, (d) any unresolved concerns or known-deferred cleanups, (e) task list state if applicable.
+  3. Tell the user: "We're approaching context limits — `/clear` and paste this prompt to continue with fresh context." Provide the prompt in a code block.
+  4. The user `/clear`s and pastes; you cannot do this for them (you're the one being cleared).
 - Don't trust memory blindly. Spot-check 2-3 MEMORY.md entries against the codebase at session start. Fix or delete stale entries. Review memory after architecture/workflow changes.

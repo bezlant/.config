@@ -6,8 +6,9 @@ Exit codes:
   2 = checks failed, block push and feed errors to Claude
 """
 import json
-import sys
+import shutil
 import subprocess
+import sys
 import os
 
 
@@ -35,38 +36,30 @@ def main():
             sys.exit(0)
 
         project_root = find_project_root()
-        makefile = os.path.join(project_root, "Makefile")
+        justfile = os.path.join(project_root, "justfile")
 
-        if not os.path.isfile(makefile):
+        if not os.path.isfile(justfile) or not shutil.which("just"):
             sys.exit(0)
 
-        # Only run targets that exist in the Makefile
-        with open(makefile, "r") as f:
-            makefile_content = f.read()
+        typecheck = subprocess.run(
+            ["just", "typecheck"],
+            capture_output=True, text=True, timeout=120,
+            cwd=project_root
+        )
 
-        typecheck = None
-        if "typecheck:" in makefile_content:
-            typecheck = subprocess.run(
-                ["make", "typecheck"],
-                capture_output=True, text=True, timeout=120,
-                cwd=project_root
-            )
-
-        lint = None
-        if "lint:" in makefile_content:
-            lint = subprocess.run(
-                ["make", "lint"],
-                capture_output=True, text=True, timeout=60,
-                cwd=project_root
-            )
+        lint = subprocess.run(
+            ["just", "lint"],
+            capture_output=True, text=True, timeout=60,
+            cwd=project_root
+        )
 
         errors = []
-        if typecheck and typecheck.returncode != 0:
+        if typecheck.returncode != 0:
             output = (typecheck.stdout + typecheck.stderr).strip()
-            errors.append(f"=== make typecheck FAILED ===\n{output}")
-        if lint and lint.returncode != 0:
+            errors.append(f"=== just typecheck FAILED ===\n{output}")
+        if lint.returncode != 0:
             output = (lint.stdout + lint.stderr).strip()
-            errors.append(f"=== make lint FAILED ===\n{output}")
+            errors.append(f"=== just lint FAILED ===\n{output}")
 
         if errors:
             print(
