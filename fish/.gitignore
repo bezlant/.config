@@ -7,4 +7,6 @@ themes/*
 # Track personal files (my-* prefix)
 !functions/fish_user_key_bindings.fish
 !functions/__config_chord.fish
+!functions/claude.fish
+!functions/__tmux_claude_session_args.fish
 !conf.d/my-*
