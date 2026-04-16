@@ -23,3 +23,6 @@ gh
 /vastai/vast_api_key
 /.android
 /.semgrep
+.claude
+/yt-analytics
+cagent
